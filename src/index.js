@@ -1,13 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
-import App from './App';
+import "./css/style.css"
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
+import Login from './page/Login';
+import Tasks from './page/Tasks';
+import TaskDetails from './page/TaskDetails';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <Routes>
+        {/* <Route exact path='/' element={<Login/>}/> */}
+        <Route exact path='/' element={<Tasks/>} />
+        <Route path='/:slug' element={<TaskDetails/>} />
+      </Routes>
+    </Router>
   </React.StrictMode>
 );
 
